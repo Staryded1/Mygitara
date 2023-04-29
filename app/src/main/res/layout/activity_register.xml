@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/biruza"
+    tools:context=".RegisterActivity">
+
+    <androidx.constraintlayout.utils.widget.MotionLabel
+        android:layout_width="194dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="197dp"
+        android:layout_marginBottom="665dp"
+        android:textSize="25sp"
+        android:text="Регистрация"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/register_name_input"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="220dp"
+        android:layout_marginBottom="460dp"
+        android:autofillHints=""
+        android:background="@drawable/input_design"
+        android:backgroundTint="@color/white"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck,TextFields,VisualLintOverlap,VisualLintTextFieldSize" />
+
+    <androidx.constraintlayout.utils.widget.MotionLabel
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="270dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="431dp"
+        android:text="Email"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,VisualLintBounds" />
+
+    <EditText
+        android:id="@+id/register_surname_input"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="220dp"
+        android:layout_marginTop="220dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="459dp"
+        android:autofillHints=""
+        android:background="@drawable/input_design"
+        android:backgroundTint="@color/white"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck,TextFields,VisualLintOverlap,VisualLintTextFieldSize" />
+
+    <androidx.constraintlayout.utils.widget.MotionLabel
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="208dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="511dp"
+        android:text="Фамилия"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,VisualLintBounds" />
+
+    <EditText
+        android:id="@+id/register_email_input"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="380dp"
+        android:autofillHints=""
+        android:background="@drawable/input_design"
+        android:backgroundTint="@color/white"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck,TextFields,VisualLintOverlap,VisualLintTextFieldSize" />
+
+    <androidx.constraintlayout.utils.widget.MotionLabel
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="280dp"
+        android:layout_marginBottom="511dp"
+        android:text="Имя"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,VisualLintBounds" />
+
+    <EditText
+        android:id="@+id/register_password_input"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="386dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="295dp"
+        android:autofillHints=""
+        android:background="@drawable/input_design"
+        android:backgroundTint="@color/white"
+        tools:ignore="LabelFor,SpeakableTextPresentCheck,TextFields,VisualLintOverlap,VisualLintTextFieldSize" />
+
+    <androidx.constraintlayout.utils.widget.MotionLabel
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginEnd="270dp"
+        android:layout_marginBottom="340dp"
+        android:text="Пароль"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="386dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="13dp"
+        android:backgroundTint="@color/white"
+        android:text="Регистрация"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:radius="25dp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText,SpUsage,TextSizeCheck,VisualLintButtonSize" />
+
+    <LinearLayout
+        android:id="@+id/linear_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="330dp"
+        android:layout_marginEnd="-4dp"
+        android:layout_marginBottom="401dp"
+        android:orientation="horizontal"
+        tools:ignore="VisualLintBounds">
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

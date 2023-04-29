@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "868391889861",
+    "project_id": "kursach-47bc0",
+    "storage_bucket": "kursach-47bc0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868391889861:android:5104286f86d2cd719ef9ac",
+        "android_client_info": {
+          "package_name": "com.example.kursach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "868391889861-s8q7aal2vqj0o95lcnaqgdci91gaua4k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kursach",
+            "certificate_hash": "6745a85343521a2e2f358d10b77aa9cd8372c20f"
+          }
+        },
+        {
+          "client_id": "868391889861-co70nnkee5usjvisdgt7al4cilq6vqmt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7u6N3kXanIf3_kSHm1VEsi_XbLaU9zbs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868391889861-co70nnkee5usjvisdgt7al4cilq6vqmt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
