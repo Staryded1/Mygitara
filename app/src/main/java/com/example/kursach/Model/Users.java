@@ -1,16 +1,16 @@
 package com.example.kursach.Model;
 
 public class Users {
-    private String name, email, password, image;
+    private String name, phone, password, image;
 
     public Users()
     {
 
     }
 
-    public Users(String name, String email, String password, String image) {
+    public Users(String name, String phone, String password, String image) {
         this.name = name;
-        this.email = email;
+        this.phone = phone;
         this.password = password;
         this.image = image;
     }
@@ -31,12 +31,12 @@ public class Users {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {

@@ -25,21 +25,19 @@ import java.util.HashMap;
 public class RegisterActivity extends AppCompatActivity {
 
     private Button registerBtn;
-    private EditText usernameInput, surnameInput, emailInput, passwordInput;
-
-    private ProgressDialog loadingbar;
+    private EditText usernameInput, phoneInput, passwordInput;
+    private ProgressDialog loadingBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        registerBtn = findViewById(R.id.register_btn);
-        usernameInput = findViewById(R.id.register_name_input);
-        surnameInput = findViewById(R.id.register_surname_input);
-        emailInput = findViewById(R.id.register_email_input);
-        passwordInput = findViewById(R.id.register_password_input);
-        loadingbar = new ProgressDialog(this);
+        registerBtn = (Button) findViewById(R.id.register_btn);
+        usernameInput = (EditText) findViewById(R.id.register_username_input);
+        phoneInput = (EditText) findViewById(R.id.register_phone_input);
+        passwordInput = (EditText) findViewById(R.id.register_password_input);
+        loadingBar = new ProgressDialog(this);
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,39 +48,34 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void CreateAccount() {
-
-        String name = usernameInput.getText().toString();
-        String surname = surnameInput.getText().toString();
-        String email = emailInput.getText().toString();
+        String username = usernameInput.getText().toString();
+        String phone = phoneInput.getText().toString();
         String password = passwordInput.getText().toString();
 
-
-        if (TextUtils.isEmpty(name)) {
+        if(TextUtils.isEmpty(username))
+        {
             Toast.makeText(this, "Введите имя", Toast.LENGTH_SHORT).show();
-
-        } else if (TextUtils.isEmpty(surname)) {
-            Toast.makeText(this, "Введите фамилию", Toast.LENGTH_SHORT).show();
-
-        } else if (TextUtils.isEmpty(email)) {
-            Toast.makeText(this, "Введите email", Toast.LENGTH_SHORT).show();
-
-        } else if (TextUtils.isEmpty(password)) {
+        }
+        else if(TextUtils.isEmpty(phone))
+        {
+            Toast.makeText(this, "Введите номер", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(password))
+        {
             Toast.makeText(this, "Введите пароль", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            loadingBar.setTitle("Создание аккаунта");
+            loadingBar.setMessage("Подождите...");
+            loadingBar.setCanceledOnTouchOutside(false);
+            loadingBar.show();
 
-        } else {
-            loadingbar.setTitle("Регистрация аккаунта...");
-            loadingbar.setMessage("Пожалуйста, подождите");
-            loadingbar.setCanceledOnTouchOutside(false);
-            loadingbar.show();
-
-            ValidateEmail(name, surname, email, password);
-
-
+            ValidatePhone(username, phone, password);
         }
     }
 
-
-    private void ValidateEmail(String name, String surname, String email, String password)
+    private void ValidatePhone(String username, String phone, String password)
     {
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
@@ -90,49 +83,39 @@ public class RegisterActivity extends AppCompatActivity {
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(!(snapshot.child("Users").child(email).exists()))
+                if(!(snapshot.child("Users").child(phone).exists()))
                 {
                     HashMap<String, Object> userDataMap = new HashMap<>();
-                    userDataMap.put("name",name);
-                    userDataMap.put("surname",surname);
-                    userDataMap.put("email",email);
-                    userDataMap.put("password",password);
+                    userDataMap.put("phone", phone);
+                    userDataMap.put("name", username);
+                    userDataMap.put("password", password);
 
-                    RootRef.child("Users").child(email).updateChildren(userDataMap)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-
-
-                                    if(task.isSuccessful())
-                                    {
-                                        loadingbar.dismiss();
-                                        Toast.makeText(RegisterActivity.this, "Регистрация прошла успешно", Toast.LENGTH_SHORT).show();
-
-                                        Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                        startActivity(loginIntent);
-                                    }
-                                    else
-                                    {
-                                        loadingbar.dismiss();
-                                        Toast.makeText(RegisterActivity.this, "Ошибка, такой email уже существует", Toast.LENGTH_SHORT).show();
-
-                                    }
-
-                                }
-                            });
-
+                    RootRef.child("Users").child(phone).updateChildren(userDataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task)
+                        {
+                            if(task.isSuccessful())
+                            {
+                                loadingBar.dismiss();
+                                Toast.makeText(RegisterActivity.this, "Регистрация прошла успешно.", Toast.LENGTH_SHORT).show();
+                                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(loginIntent);
+                            }
+                            else
+                            {
+                                loadingBar.dismiss();
+                                Toast.makeText(RegisterActivity.this, "Ошибка.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 }
                 else
                 {
-                    loadingbar.dismiss();
-                    Toast.makeText(RegisterActivity.this,"Email" + email +"Этот email уже используется", Toast.LENGTH_SHORT).show();
-
-
+                    loadingBar.dismiss();
+                    Toast.makeText(RegisterActivity.this, "Номер" +phone+ "уже зарегистрирован", Toast.LENGTH_SHORT).show();
                     Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
                     startActivity(loginIntent);
                 }
-
             }
 
             @Override
@@ -140,6 +123,5 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
-
     }
 }

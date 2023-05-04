@@ -35,7 +35,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class SettingsActivity extends AppCompatActivity {
 
     private CircleImageView profileImageView;
-    private EditText fullNameEditText, userEmailEditText, addressEditText;
+    private EditText fullNameEditText, userPhoneEditText, addressEditText;
     private TextView saveTextButton,  closeTextBtn;
 
     private String checker = "";
@@ -50,17 +50,17 @@ public class SettingsActivity extends AppCompatActivity {
 
         profileImageView = (CircleImageView) findViewById(R.id.settings_account_image);
         fullNameEditText = (EditText) findViewById(R.id.settings_fullname);
-        userEmailEditText = (EditText) findViewById(R.id.settings_email);
+        userPhoneEditText = (EditText) findViewById(R.id.settings_email);
         addressEditText = (EditText) findViewById(R.id.settings_address);
         saveTextButton = (TextView) findViewById(R.id.save_settings_tv);
         closeTextBtn = (TextView) findViewById(R.id.close_settings_tv);
         storageProfilePictureRef = FirebaseStorage.getInstance().getReference().child("Profile pictures");
-        userInfoDisplay(profileImageView, fullNameEditText, userEmailEditText,addressEditText);
+        userInfoDisplay(profileImageView, fullNameEditText, userPhoneEditText,addressEditText);
 
         closeTextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginIntent = new Intent(SettingsActivity.this, HomeeActivity.class);
+                Intent loginIntent = new Intent(SettingsActivity.this, HomeActivity.class);
                 startActivity(loginIntent);
 
             }
@@ -96,7 +96,7 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     private void userInfoDisplay( final CircleImageView profileImageView, final EditText fullNameEditText, final EditText userEmailEditText, final EditText addressEditText) {
-        String phone = Prevalent.currentOnlineUser.getEmail();
+        String phone = Prevalent.currentOnlineUser.getPhone();
         DatabaseReference UsersRef = FirebaseDatabase.getInstance().getReference().child("Users").child(phone);
 
         UsersRef.addValueEventListener(new ValueEventListener() {
@@ -108,23 +108,23 @@ public class SettingsActivity extends AppCompatActivity {
                     {
                         String image = snapshot.child("image").getValue().toString();
                         String name = snapshot.child("name").getValue().toString();
-                        String email = snapshot.child("email").getValue().toString();
+                        String phone = snapshot.child("phone").getValue().toString();
                         String address = snapshot.child("address").getValue().toString();
 
                         Picasso.get().load(image).into(profileImageView);
                         fullNameEditText.setText(name);
-                        userEmailEditText.setText(email);
+                        userPhoneEditText.setText(phone);
                         addressEditText.setText(address);
                     }
 
                     if (snapshot.child("address").exists())
                     {
                         String name = snapshot.child("name").getValue().toString();
-                        String email = snapshot.child("email").getValue().toString();
+                        String phone = snapshot.child("phone").getValue().toString();
                         String address = snapshot.child("address").getValue().toString();
 
                         fullNameEditText.setText(name);
-                        userEmailEditText.setText(email);
+                        userPhoneEditText.setText(phone);
                         addressEditText.setText(address);
                     }
                 }
@@ -147,7 +147,7 @@ public class SettingsActivity extends AppCompatActivity {
         {
             Toast.makeText(this, "Заполните адрес", Toast.LENGTH_SHORT).show();
         }
-        else if (TextUtils.isEmpty(userEmailEditText.getText().toString()))
+        else if (TextUtils.isEmpty(userPhoneEditText.getText().toString()))
         {
             Toast.makeText(this, "Заполните email", Toast.LENGTH_SHORT).show();
         }
@@ -173,7 +173,7 @@ public class SettingsActivity extends AppCompatActivity {
         if (imageUri != null)
         {
             final StorageReference fileRef = storageProfilePictureRef
-                    .child(Prevalent.currentOnlineUser.getEmail() + ".WebP");
+                    .child(Prevalent.currentOnlineUser.getPhone() + ".WebP");
 
             uploadTask = fileRef.putFile(imageUri);
 
@@ -203,13 +203,13 @@ public class SettingsActivity extends AppCompatActivity {
                                 HashMap<String, Object> userMap = new HashMap<>();
                                 userMap. put("name", fullNameEditText.getText().toString());
                                 userMap. put("address", addressEditText.getText().toString());
-                                userMap. put("emailOrder", userEmailEditText.getText().toString());
+                                userMap. put("phoneOrder", userPhoneEditText.getText().toString());
                                 userMap. put("image", myUrl);
-                                ref.child(Prevalent.currentOnlineUser.getEmail()).updateChildren(userMap);
+                                ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
 
                                 progressDialog.dismiss();
 
-                                startActivity(new Intent(SettingsActivity.this, HomeeActivity.class));
+                                startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
                                 Toast.makeText(SettingsActivity.this, "Информация успешно сохранена", Toast.LENGTH_SHORT).show();
                                 finish();
                             }
@@ -233,11 +233,12 @@ public class SettingsActivity extends AppCompatActivity {
         HashMap<String, Object> userMap = new HashMap<>();
         userMap. put("name", fullNameEditText.getText().toString());
         userMap. put("address", addressEditText.getText().toString());
-        userMap. put("phoneOrder", userEmailEditText.getText().toString());
-        ref.child(Prevalent.currentOnlineUser.getEmail()).updateChildren(userMap);
+        userMap. put("phoneOrder", userPhoneEditText.getText().toString());
+        ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
 
-        startActivity(new Intent(SettingsActivity.this, HomeeActivity.class));
+        startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
         Toast.makeText(SettingsActivity.this, "Успешно сохранено", Toast.LENGTH_SHORT).show();
         finish();
     }
+
 }

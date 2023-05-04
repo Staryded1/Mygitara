@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        joinButton = (Button) findViewById(R.id.main_registr_btn);
+        joinButton = (Button) findViewById(R.id.main_register_btn);
         loginButton = (Button)  findViewById(R.id.login_btn);
 
 

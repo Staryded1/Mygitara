@@ -4,58 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/biruza"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/app_logo"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:id="@+id/kinologo"
+        android:layout_width="330dp"
+        android:layout_height="120dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="80dp"
         android:src="@drawable/ris" />
 
     <TextView
-        android:id="@+id/applogo"
-        android:layout_width="269dp"
+        android:id="@+id/app_slogan"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/app_logo"
+        android:layout_below="@+id/kinologo"
         android:layout_centerHorizontal="true"
-        android:text="Выбири свои кроссовки, выбери свой стиль"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold|italic" />
-    <Button
-        android:id="@+id/main_registr_btn"
-        android:layout_width="182dp"
+        android:text="Выбери свой стиль, выбери свои кроссовки"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        android:textStyle="bold|italic"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/main_login_btn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="12dp"
-        android:textColor="@android:color/white"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button"
+        android:padding="20dp"
+        android:text="Уже есть аккаунт? Войти."
+        android:textAllCaps="false"
+        android:textSize="22sp"
+        android:textColor="@android:color/black"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/main_register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/main_login_btn"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/button"
+        android:padding="20dp"
         android:text="Регистрация"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:backgroundTint="@color/black"
-
-
-        android:layout_marginBottom="60dp"
-        android:padding="10dp"/>
-
-    <Button
-        android:id="@+id/login_btn"
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="215dp"
-        android:layout_marginBottom="60dp"
-        android:text="Войти"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/black" />
-
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="22sp" />
 
 </RelativeLayout>

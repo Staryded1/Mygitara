@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kursach.Prevalent.Prevalent;
-import com.example.kursach.databinding.ActivityHomeeBinding;
+import com.example.kursach.databinding.ActivityHomeBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
@@ -29,7 +29,7 @@ import com.squareup.picasso.Picasso;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 
-public class HomeeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
     DatabaseReference ProductsRef;
@@ -39,10 +39,10 @@ public class HomeeActivity extends AppCompatActivity implements NavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_homee);
+        setContentView(R.layout.activity_home);
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Product");
 
-        com.example.kursach.databinding.ActivityHomeeBinding binding = ActivityHomeeBinding.inflate(getLayoutInflater());
+        com.example.kursach.databinding.ActivityHomeBinding binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
 
@@ -100,7 +100,7 @@ public class HomeeActivity extends AppCompatActivity implements NavigationView.O
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.homee, menu);
+        getMenuInflater().inflate(R.menu.home, menu);
         return true;
     }
     @Override
@@ -122,13 +122,13 @@ public class HomeeActivity extends AppCompatActivity implements NavigationView.O
         } else if(id == R.id.nav_slideshow){
 
         } else if(id == R.id.nav_settings){
-            Intent loginIntent = new Intent(HomeeActivity.this, SettingsActivity.class);
+            Intent loginIntent = new Intent(HomeActivity.this, SettingsActivity.class);
             startActivity(loginIntent);
 
         } else if(id == R.id.nav_logout){
 
 
-            Intent loginIntent = new Intent(HomeeActivity.this, LoginActivity.class);
+            Intent loginIntent = new Intent(HomeActivity.this, LoginActivity.class);
             startActivity(loginIntent);
         }
         DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
