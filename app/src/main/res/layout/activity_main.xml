@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -28,8 +27,8 @@
         android:textStyle="bold|italic"
         />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/main_login_btn"
+    <Button
+        android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -44,11 +43,11 @@
         android:textColor="@android:color/black"
         />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/main_register_btn"
+    <Button
+        android:id="@+id/register_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/main_login_btn"
+        android:layout_above="@+id/login_btn"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"

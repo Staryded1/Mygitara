@@ -28,7 +28,7 @@
         android:hint="Номер телефона"
         android:inputType="number"
         android:textColorHint="@android:color/black"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         />
@@ -46,7 +46,7 @@
         android:hint="Пароль"
         android:inputType="textPassword"
         android:textColorHint="@android:color/black"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         />
@@ -59,7 +59,7 @@
         android:orientation="horizontal"
         android:layout_below="@+id/login_password_input">
 
-        <CheckBox
+        <com.rey.material.widget.CheckBox
             android:id="@+id/login_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,7 +85,7 @@
 
     </LinearLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

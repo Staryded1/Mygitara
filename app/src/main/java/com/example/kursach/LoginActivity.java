@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity
         String password = passwordInput.getText().toString();
 
         if (TextUtils.isEmpty(phone)) {
-            Toast.makeText(this, "Введите email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Введите номер телефона", Toast.LENGTH_SHORT).show();
 
         } else if (TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Введите пароль", Toast.LENGTH_SHORT).show();
@@ -81,7 +81,7 @@ public class LoginActivity extends AppCompatActivity
 
 
         if(checkBoxRememberMe.isChecked()){
-            Paper.book().write(Prevalent.UserEmailKey, phone);
+            Paper.book().write(Prevalent.UserPhoneKey, phone);
             Paper.book().write(Prevalent.UserPasswordKey, password);
         }
 
@@ -95,16 +95,20 @@ public class LoginActivity extends AppCompatActivity
                 {
                     Users usersData = snapshot.child(parentDbName).child(phone).getValue(Users.class);
 
-                    assert usersData != null;
+
                     if(usersData.getPhone().equals(phone))
                     {
                         if(usersData.getPassword().equals(password))
                         {
+                            Prevalent.currentOnlineUser = usersData;
                             loadingbar.dismiss();
                             Toast.makeText(LoginActivity.this, "Успешный вход", Toast.LENGTH_SHORT).show();
 
                             Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                            homeIntent.putExtra("phone", phone);
+
                             startActivity(homeIntent);
+
                         }
                         else
                         {

@@ -16,7 +16,7 @@
             android:title="Категории"
             android:iconTint="@color/biruza"/>
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_like"
             android:icon="@drawable/postlike"
             android:title="Понравившееся"
             android:iconTint="@color/biruza"/>

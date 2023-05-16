@@ -50,7 +50,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         profileImageView = (CircleImageView) findViewById(R.id.settings_account_image);
         fullNameEditText = (EditText) findViewById(R.id.settings_fullname);
-        userPhoneEditText = (EditText) findViewById(R.id.settings_email);
+        userPhoneEditText = (EditText) findViewById(R.id.settings_phone);
         addressEditText = (EditText) findViewById(R.id.settings_address);
         saveTextButton = (TextView) findViewById(R.id.save_settings_tv);
         closeTextBtn = (TextView) findViewById(R.id.close_settings_tv);
@@ -149,7 +149,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
         else if (TextUtils.isEmpty(userPhoneEditText.getText().toString()))
         {
-            Toast.makeText(this, "Заполните email", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Заполните номер телефона", Toast.LENGTH_SHORT).show();
         }
         else if(checker.equals("clicked"))
         {
@@ -237,6 +237,7 @@ public class SettingsActivity extends AppCompatActivity {
         ref.child(Prevalent.currentOnlineUser.getPhone()).updateChildren(userMap);
 
         startActivity(new Intent(SettingsActivity.this, HomeActivity.class));
+
         Toast.makeText(SettingsActivity.this, "Успешно сохранено", Toast.LENGTH_SHORT).show();
         finish();
     }
