@@ -13,75 +13,107 @@
         android:layout_height="120dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:src="@drawable/ris"/>
+        android:src="@drawable/ris" />
 
     <EditText
         android:id="@+id/login_phone_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/kinologo"
-        android:background="@drawable/input_design"
-        android:padding="15dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="25dp"
         android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/input_design"
         android:hint="Номер телефона"
         android:inputType="number"
-        android:textColorHint="@android:color/black"
+        android:padding="15dp"
         android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
-        />
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/login_password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/login_phone_input"
-        android:background="@drawable/input_design"
-        android:padding="15dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="25dp"
-        android:layout_marginLeft="25dp"
+        android:background="@drawable/input_design"
         android:hint="Пароль"
         android:inputType="textPassword"
-        android:textColorHint="@android:color/black"
+        android:padding="15dp"
         android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/admin_panel_link"
+        android:layout_width="wrap_content"
+        android:layout_height="39dp"
+
+        android:layout_below="@+id/login_btn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginBottom="170dp"
+        android:text="Для админа"
+        android:textColor="@color/biruza"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/not_admin_panel_link"
+        android:layout_width="137dp"
+        android:layout_height="63dp"
+        android:layout_below="@+id/login_btn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="169dp"
+        android:text="Для клиентов"
+        android:textColor="@color/biruza"
+        android:textSize="15dp"
         android:textStyle="bold"
-        />
+        android:visibility="invisible" />
 
     <LinearLayout
         android:id="@+id/Linear_check"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/login_password_input"
         android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/login_password_input">
+        android:orientation="horizontal">
 
         <com.rey.material.widget.CheckBox
             android:id="@+id/login_checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Запомнить"
-            android:textColor="@color/black"
-            android:gravity="center_vertical"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textAllCaps="false"
             android:layout_marginLeft="25dp"
-            />
+            android:gravity="center_vertical"
+            android:text="Запомнить"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/forget_password_link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
             android:text="Забыли пароль?"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_marginLeft="80dp"
-            />
+            android:textStyle="bold" />
 
     </LinearLayout>
 

@@ -9,11 +9,13 @@
     tools:openDrawer="start"
     tools:context=".HomeActivity">
 
+
     <include
         android:id="@+id/app_bar_home"
         layout="@layout/app_bar_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -25,4 +27,7 @@
         app:menu="@menu/activity_main_drawer"
 
         />
+
+
+
 </androidx.drawerlayout.widget.DrawerLayout>

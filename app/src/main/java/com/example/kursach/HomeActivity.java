@@ -39,19 +39,16 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     private AppBarConfiguration mAppBarConfiguration;
     DatabaseReference ProductsRef;
-    RecyclerView recyclerView, courseRecycler;
+    RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-//    CourseAdapter courseAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-//        List<Course> courseList = new ArrayList<>();
-//        courseList.add(new Course(1, "shoes", "$119.99", "Air Huarache LE Gold", "#ffffff"));
-//
-//        setCourseRecycler(courseList);
+
 
         String phone = getIntent().getStringExtra("phone");
 
@@ -91,18 +88,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         recyclerView.setLayoutManager(layoutManager);
     }
 
-//    private void setCourseRecycler(List<Course> courseList) {
-//
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
-//
-//        courseRecycler = findViewById(R.id.recycler_menu);
-//        courseRecycler.setLayoutManager(layoutManager);
-//
-//        courseAdapter = new CourseAdapter(this, courseList);
-//        courseRecycler.setAdapter(courseAdapter);
-//
-//
-//    }
+
 
     @Override
     protected void onStart() {
